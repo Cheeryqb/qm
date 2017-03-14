@@ -1,11 +1,18 @@
 package com.alienlab.niit.qm.entity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 /**
  * Created by Master QB on 2017/3/14.
  */
-@javax.persistence.Entity
-@javax.persistence.Table(name = "tb_user", schema = "qualitymonitor", catalog = "")
+@ApiModel(value="用户实体类")
+@Entity
+@Table(name = "tb_user")
 public class TbUserEntity {
+    @ApiModelProperty(value="用户编码")
     private long userId;
 
     @javax.persistence.Id
@@ -17,7 +24,7 @@ public class TbUserEntity {
     public void setUserId(long userId) {
         this.userId = userId;
     }
-
+    @ApiModelProperty(value="用户登录名")
     private String userLoginname;
 
     @javax.persistence.Basic
@@ -30,6 +37,7 @@ public class TbUserEntity {
         this.userLoginname = userLoginname;
     }
 
+    @ApiModelProperty(value="用户密码")
     private String userPwd;
 
     @javax.persistence.Basic
